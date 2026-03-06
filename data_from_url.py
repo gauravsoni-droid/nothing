@@ -3,8 +3,8 @@ import csv
 import re
 from playwright.async_api import async_playwright
 
-INPUT_FILE = "barfoot_rural_urls.csv"
-OUTPUT_FILE = "barfoot_rural_data.csv"
+INPUT_FILE = "barfoot_rental_urls_available_now.csv"
+OUTPUT_FILE = "barfoot_rental_data_available_now.csv"
 
 # CSV columns matching requirements: location, sale type, description, all agent name:number, url
 OUTPUT_FIELDS = [
@@ -56,11 +56,11 @@ async def scrape():
             # --- Location (property title/address) ---
             location = await get_text(page, "h1")
 
-            # --- Sale type / price banner (e.g. "For Sale $430,000", "For sale by negotiation", "Deadline sale") ---
+            # --- Sale type / price banner (e.g. "For Sale $430,000", "For sale by negotiation", "Deadline sale", "$1,350 per week, available 30th March") ---
             sale_type = ""
             try:
                 sale_pattern = re.compile(
-                    r"(for sale|sale by|deadline sale|auction|tender)",
+                    r"(for sale|sale by|deadline sale|auction|tender|for rent|per week|weekly rent|per month|pw\b|available\s+\d)",
                     re.IGNORECASE,
                 )
                 # Common containers for price / sale info

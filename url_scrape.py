@@ -4,8 +4,8 @@ import math
 from playwright.async_api import async_playwright
 
 BASE_URL = "https://www.barfoot.co.nz"
-START_URL = f"{BASE_URL}/properties/rural"
-OUTPUT_FILE = "barfoot_rural_urls.csv"
+START_URL = f"{BASE_URL}/properties/rental/search-only=available-now"
+OUTPUT_FILE = "barfoot_rental_urls_available_now.csv"
 PAGE_SIZE = 48
 
 
