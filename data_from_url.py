@@ -3,8 +3,8 @@ import csv
 import re
 from playwright.async_api import async_playwright
 
-INPUT_FILE = "barfoot_rental_urls_available_now.csv"
-OUTPUT_FILE = "barfoot_rental_data_available_now.csv"
+INPUT_FILE = "urls/barfoot_rural_urls.csv"
+OUTPUT_FILE = "data/barfoot_rural_data.csv"
 
 # CSV columns matching requirements: location, sale type, description, all agent name:number, url
 OUTPUT_FIELDS = [
